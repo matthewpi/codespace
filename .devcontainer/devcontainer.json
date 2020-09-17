@@ -1,0 +1,15 @@
+{
+    "name": "Codespaces Node.js Starter",
+
+    "extensions": [],
+
+    "dockerFile": "Dockerfile",
+    "settings": {
+        "terminal.integrated.shell.linux": "/usr/bin/zsh",
+
+        "files.exclude": {
+            "**/CODE_OF_CONDUCT.md": true,
+            "**/LICENSE.md": true
+        }
+    }
+}
