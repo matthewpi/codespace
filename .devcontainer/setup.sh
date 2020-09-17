@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 dnf update -y
 dnf install -y epel-release
 dnf update -y
@@ -96,7 +98,7 @@ BAT_THEME="Nord"
 export BAT_THEME
 
 # https://starship.rs
-eval "$(starship init zsh)"
+eval "$(/usr/local/bin/starship init zsh)"
 EOL
 chown -R $USER_UID:$USER_GID /home/$USERNAME/.oh-my-zsh /home/$USERNAME/.zshrc
 

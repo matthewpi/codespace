@@ -17,15 +17,12 @@
         "enkia.tokyo-night",
         "ms-vsonline.vsonline",
         "visualstudioexptteam.vscodeintellicode",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
     ],
 
     "settings": {
         "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    },
 
-        "files.exclude": {
-            "**/CODE_OF_CONDUCT.md": true,
-            "**/LICENSE.md": true
-        }
-    }
+    "remoteUser": "codespace",
 }
