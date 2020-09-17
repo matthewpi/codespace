@@ -9,7 +9,7 @@ groupadd -g 800 docker
 usermod -a -G docker ${USERNAME}
 
 # Set VS Code as user's git edtior
-tee /tmp/scripts/git-ed.sh > /dev/null << EOF
+tee /tmp/build/git-ed.sh > /dev/null << EOF
 #!/usr/bin/env bash
 
 if [[ \$(which code-insiders) && ! \$(which code) ]]; then

@@ -13,6 +13,8 @@ WORKDIR /home/codespace
 
 COPY . /tmp/build/
 
+RUN dnf update -y && dnf install -y sudo
+
 RUN bash /tmp/build/setup-user.sh "${USERNAME}" "${PATH}"
 RUN bash /tmp/build/setup.sh
 
