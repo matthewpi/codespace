@@ -1,6 +1,13 @@
 {
-    "name": "CentOS 8 Golang Development Container",
-    "dockerFile": "Dockerfile",
+    "name": "CentOS 8 - Golang",
+
+    "build": {
+        "dockerfile": "Dockerfile",
+
+        "args": {
+            "INSTALL_DOCKER": "true",
+        },
+    },
 
     "extensions": [
         "bungcip.better-toml",
@@ -25,4 +32,13 @@
     },
 
     "remoteUser": "codespace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/codespace/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/home/codespace/workspace",
+
+    "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
+    "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+    "overrideCommand": false,
+    "postCreateCommand": "uname -a",
+
+    "forwardPorts": [],
 }

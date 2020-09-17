@@ -1,7 +1,19 @@
 FROM centos:8
 
+ARG USERNAME=codespace
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+ENV SHELL=/usr/bin/zsh \
+    GOROOT="/usr/local/go"
+
+ENV PATH="${GOROOT}/bin:${GOPATH}/bin:${PATH}"
+
 WORKDIR /home/codespace
 
-COPY . .
+COPY . /tmp/build/
 
-RUN ./setup.sh
+RUN bash /tmp/build/setup-user.sh "${USERNAME}" "${PATH}"
+RUN bash /tmp/build/setup.sh
+
+USER codespace
