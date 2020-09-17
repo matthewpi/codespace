@@ -17,7 +17,7 @@ dnf install -y \
 # Install golang
 cd /root
 wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
-tar xzvf go1.15.2.linux-amd64.tar.gz
+tar xzf go1.15.2.linux-amd64.tar.gz
 mv go /usr/local/
 
 # Setup oh-my-zsh
@@ -72,7 +72,6 @@ alias mv="mv -i"
 
 # Runs 'git pull' on all oh-my-zsh custom plugins
 zsh_update_plugins() {
-    #fd . "$HOME/.oh-my-zsh/custom/plugins" --threads 1 --max-depth 1 --type d --exclude example --exec sh -c 'cd {} && echo "\n\033[32m${PWD##*/}\033[0m" && git pull'
     for i in $(fd . "$HOME/.oh-my-zsh/custom/plugins" --threads 1 --exact-depth 1 --type d); do
                 # Switch to the plugin's directory.
                 cd $i
