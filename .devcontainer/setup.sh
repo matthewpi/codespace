@@ -22,8 +22,8 @@ mv go /usr/local/
 
 # Setup oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-cp -R /root/.oh-my-zsh /home/$USERNAME
-cat >> /home/$USERNAME/.zshrc <<EOL
+cp -R /root/.oh-my-zsh /home/codespace
+cat >> /home/codespace/.zshrc <<EOL
 # Matthew's .zshrc (oh-my-zsh)
 export ZSH=$HOME/.oh-my-zsh
 
@@ -99,17 +99,17 @@ export BAT_THEME
 # https://starship.rs
 eval "$(/usr/local/bin/starship init zsh)"
 EOL
-chown -R $USER_UID:$USER_GID /home/$USERNAME/.oh-my-zsh /home/$USERNAME/.zshrc
+chown -R $USER_UID:$USER_GID /home/codespace/.oh-my-zsh /home/codespace/.zshrc
 
 # Install fast-syntax-highlighting
-git clone https://github.com/zdharma/fast-syntax-highlighting.git /home/$USERNAME/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
+git clone https://github.com/zdharma/fast-syntax-highlighting.git /home/codespace/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 
 # Install zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/$USERNAME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/codespace/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # Install starship
-mkdir /home/$USERNAME/.config
-cat >> /home/$USERNAME/.config/starship.toml <<EOL
+mkdir /home/codespace/.config
+cat >> /home/codespace/.config/starship.toml <<EOL
 [hostname]
 disabled = true
 

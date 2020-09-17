@@ -1,7 +1,7 @@
 FROM centos:8
 
-WORKDIR /home/
+WORKDIR /home/codespace
 
 COPY . .
 
-RUN /setup.sh
+RUN ./setup.sh
