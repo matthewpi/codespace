@@ -1,9 +1,25 @@
 {
-    "name": "Codespaces Node.js Starter",
-
-    "extensions": [],
-
+    "name": "CentOS 8 Golang Development Container",
     "dockerFile": "Dockerfile",
+
+    "extensions": [
+        "bungcip.better-toml",
+        "matthewpi.caddyfile-support",
+        "mikestead.dotenv",
+        "editorconfig.editorconfig",
+        "file-icons.file-icons",
+        "github.github-vscode-theme",
+        "golang.go",
+        "arcticicestudio.nord-visual-studio-code",
+        "whizkydee.material-palenight-theme",
+        "christian-kohler.path-intellisense",
+        "britesnow.vscode-toggle-quotes",
+        "enkia.tokyo-night",
+        "ms-vsonline.vsonline",
+        "visualstudioexptteam.vscodeintellicode",
+        "redhat.vscode-yaml"
+    ],
+
     "settings": {
         "terminal.integrated.shell.linux": "/usr/bin/zsh",
 
