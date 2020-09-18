@@ -21,11 +21,6 @@ else
     chown $USERNAME:$USERNAME /home/$USERNAME
 fi
 
-# Add user to a Docker group
-#sudo -u ${USERNAME} mkdir /home/${USERNAME}/.vsonline
-#groupadd -g 800 docker
-#usermod -a -G docker ${USERNAME}
-
 # Set VS Code as user's git edtior
 tee /tmp/scripts/git-ed.sh > /dev/null << EOF
 #!/usr/bin/env bash
