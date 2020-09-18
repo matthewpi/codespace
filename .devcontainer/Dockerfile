@@ -13,7 +13,17 @@ WORKDIR /home/codespace
 
 COPY . /tmp/build/
 
-RUN dnf update -y && dnf install -y sudo
+RUN dnf update -y && \
+    dnf install -y epel-release && \
+    dnf update -y && \
+    dnf install -y \
+        curl \
+        git \
+        htop \
+        jq \
+        sudo \
+        wget \
+        zsh
 
 RUN bash /tmp/build/setup-user.sh "${USERNAME}" "${PATH}"
 RUN bash /tmp/build/setup.sh
