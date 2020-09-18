@@ -3,10 +3,26 @@
 USERNAME=${1:-codespace}
 SECURE_PATH_BASE=${2:-$PATH}
 
+# Create or update a non-root user to match UID/GID - see https://aka.ms/vscode-remote/containers/non-root-user.
+if id -u $USERNAME > /dev/null 2>&1; then
+    # User exists, update if needed
+    if [ "$USER_GID" != "$(id -G $USERNAME)" ]; then 
+        groupmod --gid $USER_GID $USERNAME 
+        usermod --gid $USER_GID $USERNAME
+    fi
+    if [ "$USER_UID" != "$(id -u $USERNAME)" ]; then 
+        usermod --uid $USER_UID $USERNAME
+    fi
+else
+    # Create user
+    groupadd --gid $USER_GID $USERNAME
+    useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME
+fi
+
 # Add user to a Docker group
-sudo -u ${USERNAME} mkdir /home/${USERNAME}/.vsonline
-groupadd -g 800 docker
-usermod -a -G docker ${USERNAME}
+#sudo -u ${USERNAME} mkdir /home/${USERNAME}/.vsonline
+#groupadd -g 800 docker
+#usermod -a -G docker ${USERNAME}
 
 # Set VS Code as user's git edtior
 tee /tmp/build/git-ed.sh > /dev/null << EOF
