@@ -25,7 +25,7 @@ fi
 #usermod -a -G docker ${USERNAME}
 
 # Set VS Code as user's git edtior
-tee /tmp/build/git-ed.sh > /dev/null << EOF
+tee /tmp/scripts/git-ed.sh > /dev/null << EOF
 #!/usr/bin/env bash
 
 if [[ \$(which code-insiders) && ! \$(which code) ]]; then
@@ -40,4 +40,4 @@ EOF
 sudo -u ${USERNAME} mkdir -p /home/${USERNAME}/.local/bin
 install -o ${USERNAME} -g ${USERNAME} -m 755 /tmp/scripts/git-ed.sh /home/${USERNAME}/.local/bin/git-ed.sh
 sudo -u ${USERNAME} git config --global core.editor "/home/${USERNAME}/.local/bin/git-ed.sh"
-rm -f /tmp/build/git-ed.sh
+rm -f /tmp/scripts/git-ed.sh
