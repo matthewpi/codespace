@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Install golang
 cd /root
-curl https://golang.org/dl/go1.15.2.linux-amd64.tar.gz --silent --output
+curl https://golang.org/dl/go1.15.2.linux-amd64.tar.gz --silent
 tar xzf go1.15.2.linux-amd64.tar.gz
 mv go /usr/local/
 
