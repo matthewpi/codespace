@@ -9,10 +9,6 @@ ENV SHELL=/usr/bin/zsh \
 
 ENV PATH="${GOROOT}/bin:${GOPATH}/bin:${PATH}"
 
-WORKDIR /home/codespace
-
-COPY . /tmp/scripts/
-
 RUN dnf update -y && \
     dnf install -y epel-release && \
     dnf update -y && \
@@ -24,6 +20,10 @@ RUN dnf update -y && \
         sudo \
         wget \
         zsh
+
+WORKDIR /home/codespace
+
+COPY . /tmp/scripts/
 
 RUN bash /tmp/scripts/setup-user.sh "${USERNAME}" "${PATH}"
 RUN bash /tmp/scripts/setup.sh
