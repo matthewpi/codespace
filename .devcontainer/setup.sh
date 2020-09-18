@@ -2,21 +2,9 @@
 
 set -euo pipefail
 
-dnf update -y
-dnf install -y epel-release
-dnf update -y
-
-dnf install -y \
-    curl \
-    git \
-    htop \
-    jq \
-    wget \
-    zsh
-
 # Install golang
 cd /root
-wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
+curl https://golang.org/dl/go1.15.2.linux-amd64.tar.gz --silent --output
 tar xzf go1.15.2.linux-amd64.tar.gz
 mv go /usr/local/
 

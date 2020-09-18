@@ -15,6 +15,7 @@ if id -u $USERNAME > /dev/null 2>&1; then
     fi
 else
     # Create user
+    groupadd --gid $USER_GID $USERNAME
     adduser --shell /usr/bin/zsh --uid $USER_UID --gid $USER_GID --groups wheel -m $USERNAME
     mkdir /home/$USERNAME
     chown $USERNAME:$USERNAME /home/$USERNAME
