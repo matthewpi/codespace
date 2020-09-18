@@ -5,7 +5,7 @@ set -euo pipefail
 # Install golang
 cd /root
 wget --quiet https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
-tar xzf go.tar.gz
+tar xzf go1.15.2.linux-amd64.tar.gz
 mv go /usr/local/
 
 # Setup oh-my-zsh
