@@ -5,7 +5,7 @@
         "dockerfile": "Dockerfile",
 
         "args": {
-            "INSTALL_DOCKER": "true",
+            "INSTALL_DOCKER": "false",
         },
     },
 
